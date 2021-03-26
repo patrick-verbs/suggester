@@ -15,9 +15,9 @@ $(document).ready(function() {
     event.preventDefault()
 
     // Set variables to form inputs for readability:
-    const answer1 = $("input#quest1").text()
-    const answer2 = $("input#quest2").text()
-    const answer3 = $("input#quest3").text()
+    const answer1 = $("input#quest1").val()
+    const answer2 = $("input#quest2").val()
+    const answer3 = $("input#quest3").val()
     alert(`Variables assigned`)
 
     // Pass form inputs (as variables) to a business-logic
