@@ -50,7 +50,7 @@ $(document).ready(function() {
     // Set variables to the form's inputs for readability:
     const addressee = $("input#addressee").val()
     const greeting = $("input#greeting").val()
-    const codename = $("input#codename").val()
+    const username = $("input#username").val()
     const pronouns = $("input#pronouns").val()
     const connection = $("input#connection").val()
     const manage = $("input#manage").val()
