@@ -36,6 +36,24 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
     + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
     + `\r\nIt currently has a value of ${totalCount}.`)
   }
+
+  // Apply a text string to every <span> class in the results
+  let str1 = "Count Rugen"
+  let str2 = "treacherous"
+  let str3 = "Inigo Montoya"
+  let str4 = "they"
+  let str5 = "them"
+  let str6 = "theirs"
+  let str7 = "theirself"
+  let str8 = "the art of ambidextrous swordplay"
+  let str9 = "monument to classist oppression"
+  let str10 = "hello"
+  let str11 = "you killed my father"
+  let str12 = "prepare to die"
+
+  const introduction = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
+
+  return introduction
 }
 
 // USER INTERFACE LOGIC
@@ -59,5 +77,7 @@ $(document).ready(function() {
     // Pass form inputs (as variables) to a business-logic
     // function as parameters:
     results(addressee, greeting, username, pronouns, connection, manage)
+
+    $("span.username").text("NAME")
   })
 })
