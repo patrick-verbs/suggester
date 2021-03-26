@@ -5,15 +5,13 @@ function changeHeader() {
   $("span#current-field").text($focused)
 }
 
-function results(inp1, inp2, inp3, inp4, inp5, inp6, inp7, inp8, inp9, inp10, inp11, inp12) {
+function results(theArray) {
   $("span#current-field").text("")
-  alert(`Here's what to say to ${inp1}: "${inp2} My name is ${inp3} My pronouns are ${inp4}. ${inp5} ${inp6}"`)
-
   // Extrapolate some data from inputs:
   // Group inputs into pairs, add their string-lengths together, and assign value "0" for evens and "1" for odds
-  const count1 = (inp1.length + inp2.length) % 2// Always returns "0" or "1"
-  const count2 = (inp3.length + inp4.length) % 2
-  const count3 = (inp5.length + inp6.length) % 2
+  const count1 = (theArray[0].length + theArray[1].length) % 2// Always returns "0" or "1"
+  const count2 = (theArray[2].length + theArray[3].length) % 2
+  const count3 = (theArray[4].length + theArray[5].length) % 2
   // Tuck constants into an array for simplified error prevention and legible future scaling:
   const counts = [count1, count2, count3]
   // Tally the character-counts using the array to prevent unpredictable results:
@@ -32,15 +30,19 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6, inp7, inp8, inp9, inp10, in
     alert(`Result 1:`
     + `\r\nTotalCount = ${totalCount}`
     + `\r\nLanguage = Python`)
+    theArray[7] = "Python"
   } else if (totalCount === 1) {
     alert(`Result 2: totalCount = ${totalCount}`
     + `\r\nLanguage = Ruby`)
+    theArray[7] = "Ruby"
   } else if (totalCount === 2) {
     alert(`Result 3: totalCount = ${totalCount}`
     + `\r\nLanguage = JavaScript`)
+    theArray[7] = "JavaScript"
   } else if (totalCount === 3) {
     alert(`Result 4: totalCount = ${totalCount}`
     + `\r\nLanguage = C#`)
+    theArray[7] = "C#"
   } else {
     alert(`Branch logic exception.`
     + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
@@ -48,7 +50,7 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6, inp7, inp8, inp9, inp10, in
   }
 
   alert(`please do the thing...`)
-  return pleaseWork = ["INIGO MONTOYA", "they/them/theirs"]
+  return theArray
 }
 
 // USER INTERFACE LOGIC
@@ -107,6 +109,7 @@ $(document).ready(function() {
     anArray = results(anArray)
 
     $("span.username").text(anArray[0])
+    $("span.code-skill").text(anArray[7])
 
     // Reveal the results and had the form
     $("section#survey-form").removeClass()
