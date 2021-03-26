@@ -1,7 +1,7 @@
-#survey-form {
-  display: block;
+.hide-me {
+  display: none;
 }
 
-#survey-results {
-  display: block;
+.show-me {
+  display: inline-block;
 }

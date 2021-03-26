@@ -1,8 +1,5 @@
 // BUSINESS LOGIC
 /////////////////
-// Global unless I can work out a way around this
-//let SPEECH = []
-
 function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   alert(`Here's what to say to ${inp1}: "${inp2} My name is ${inp3} My pronouns are ${inp4}. ${inp5} ${inp6}"`)
 
@@ -28,12 +25,16 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   if (totalCount === 0) {
     alert(`Result 1:`
     + `\r\nTotalCount = ${totalCount}`)
+    + `\r\nLanguage = Python`
   } else if (totalCount === 1) {
     alert(`Result 2: totalCount = ${totalCount}`)
+    + `\r\nLanguage = Ruby`
   } else if (totalCount === 2) {
     alert(`Result 3: totalCount = ${totalCount}`)
+    + `\r\nLanguage = JavaScript`
   } else if (totalCount === 3) {
     alert(`Result 4: totalCount = ${totalCount}`)
+    + `\r\nLanguage = C#`
   } else {
     alert(`Branch logic exception.`
     + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
@@ -68,7 +69,7 @@ $(document).ready(function() {
     anArray = results(addressee, greeting, username, pronouns, connection, manage)
 
     // Apply a text string to every <span> class in the results
-    let SPEECH = "Count Rugen"
+    let str1 = "Count Rugen"
     let str2 = "treacherous"
     let str3 = "Inigo Montoya"
     let str4 = "they"
@@ -84,5 +85,11 @@ $(document).ready(function() {
     //SPEECH = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
 
     $("span.username").text(anArray[0])
+
+    // Reveal the results and had the form
+    $("section#survey-form").removeClass()
+    $("section#survey-form").addClass("hide-me")
+    $("section#survey-results").addClass("show-me")
+    $("section#survey-results").addClass("hide-me")
   })
 })
