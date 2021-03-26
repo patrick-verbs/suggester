@@ -1,9 +1,8 @@
 // BUSINESS LOGIC
 function results(inp1, inp2, inp3) {
   // STUFF
-  alert(`Function has received the inputs ${inp1}, ${inp2}, and ${inp3}.`)
+  alert(`Function has received the inputs "${inp1}," "${inp2}," and "${inp3}"`)
 }
-
 
 // USER INTERFACE LOGIC
 $(document).ready(function() {
