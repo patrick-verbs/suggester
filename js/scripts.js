@@ -8,8 +8,15 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   const count2 = (inp3.length + inp4.length) % 2
   const count3 = (inp5.length + inp6.length) % 2
   // Tally the results, which must range from "0" (all evens) to "3" (all odds)
-  const totalCount = count1 + count2 + count3
-  alert(`The totalCount variable has the value ${totalCount}.`)
+  let totalCount = count1 + count2 + count3
+  // Catch errors in the above input handling and variable assignment:
+  totalCount = totalCount.toString()
+  alert(`totalCount: ${totalCount}`)
+  if ( totalCount.isNaN() === true || totalCount < 0 || totalCount > 3 || totalCount != parseInt(totalCount) ) {
+    alert(`Something went wrong passing user input data to the totalCount variable. It currently has the value of "${totalCount}".`)
+  } else {
+    alert(`So far, so good!`)
+  }
 
   // Use branching to return at least 3 different results
   if (totalCount === 0) {
@@ -21,7 +28,7 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   } else if (totalCount === 3) {
     alert(`result 4`)
   } else {
-    alert(`branch logic exception`)
+    alert(`Branch logic exception. This logic uses the totalCount variable.`)
   }
 }
 
@@ -33,7 +40,7 @@ $(document).ready(function() {
     // since all data is being handled here in JS/CSS/HTML:
     event.preventDefault()
 
-    // Set variables to form inputs for readability:
+    // Set variables to the form's inputs for readability:
     const addressee = $("input#addressee").val()
     const greeting = $("input#greeting").val()
     const codename = $("input#codename").val()
