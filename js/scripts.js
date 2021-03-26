@@ -58,6 +58,6 @@ $(document).ready(function() {
 
     // Pass form inputs (as variables) to a business-logic
     // function as parameters:
-    results(addressee, greeting, codename, pronouns, connection, manage)
+    results(addressee, greeting, username, pronouns, connection, manage)
   })
 })
