@@ -1,4 +1,5 @@
 // BUSINESS LOGIC
+/////////////////
 function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   alert(`Here's what to say to ${inp1}: "${inp2} My name is ${inp3} My pronouns are ${inp4}. ${inp5} ${inp6}"`)
 
@@ -9,11 +10,13 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   const count3 = (inp5.length + inp6.length) % 2
   // Tuck constants into an array for simplified error prevention and legible future scaling:
   const counts = [count1, count2, count3]
-  // Tally the results using the array to prevent unpredictable results:
+  // Tally the character-counts using the array to prevent unpredictable results:
+  // CHANGE THE BELOW TO A LOOP IF ENOUGH TIME LEFT, MORE ROBUST & LEGIBLE AT SCALE
   const totalCount = counts[0] + counts[1] + counts[2]
   // Catch errors in the above input handling and variable assignment:
   if ( totalCount < 0 || totalCount > counts.length || totalCount != parseInt(totalCount) ) {
-    alert(`Something went wrong passing user input data to the totalCount variable. It currently has the value of "${totalCount}".`)
+    alert(`Something went wrong passing user input data to the 'totalCount' variable.`
+    + `\r\nIt currently has the value of "${totalCount}".`)
   } else {
     alert(`So far, so good!`)
   }
@@ -36,6 +39,7 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
 }
 
 // USER INTERFACE LOGIC
+///////////////////////
 $(document).ready(function() {
   // Receive the form data:
   $("#form1").submit(function() {
