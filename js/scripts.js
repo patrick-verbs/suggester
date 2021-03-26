@@ -1,6 +1,12 @@
 // BUSINESS LOGIC
 /////////////////
-function results(inp1, inp2, inp3, inp4, inp5, inp6) {
+function changeHeader() {
+  let $focused = $(":focus").val()
+  $("span#current-field").text($focused)
+}
+
+function results(inp1, inp2, inp3, inp4, inp5, inp6, inp7, inp8, inp9, inp10, inp11, inp12) {
+  $("span#current-field").text("")
   alert(`Here's what to say to ${inp1}: "${inp2} My name is ${inp3} My pronouns are ${inp4}. ${inp5} ${inp6}"`)
 
   // Extrapolate some data from inputs:
@@ -24,17 +30,17 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   // Use branching to return at least 3 different results
   if (totalCount === 0) {
     alert(`Result 1:`
-    + `\r\nTotalCount = ${totalCount}`)
-    + `\r\nLanguage = Python`
+    + `\r\nTotalCount = ${totalCount}`
+    + `\r\nLanguage = Python`)
   } else if (totalCount === 1) {
-    alert(`Result 2: totalCount = ${totalCount}`)
-    + `\r\nLanguage = Ruby`
+    alert(`Result 2: totalCount = ${totalCount}`
+    + `\r\nLanguage = Ruby`)
   } else if (totalCount === 2) {
-    alert(`Result 3: totalCount = ${totalCount}`)
-    + `\r\nLanguage = JavaScript`
+    alert(`Result 3: totalCount = ${totalCount}`
+    + `\r\nLanguage = JavaScript`)
   } else if (totalCount === 3) {
-    alert(`Result 4: totalCount = ${totalCount}`)
-    + `\r\nLanguage = C#`
+    alert(`Result 4: totalCount = ${totalCount}`
+    + `\r\nLanguage = C#`)
   } else {
     alert(`Branch logic exception.`
     + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
@@ -48,6 +54,32 @@ function results(inp1, inp2, inp3, inp4, inp5, inp6) {
 // USER INTERFACE LOGIC
 ///////////////////////
 $(document).ready(function() {
+  // Define a text string for every <span> class in the results
+  let str1 = "Count Rugen"
+  let str2 = "treacherous"
+  let str3 = "Inigo Montoya"
+  let str4 = "they"
+  let str5 = "them"
+  let str6 = "their"
+  let str7 = "themself"
+  let str8 = "the art of ambidextrous swordplay"
+  let str9 = "monument to classist oppression"
+  let str10 = "hello"
+  let str11 = "you killed my father"
+  let str12 = "prepare to die"
+
+  // Set the default form values as an example for users:
+  $("input#addressee").val(str1)
+  $("input#addressee-adj").val(str2)
+  $("input#addressee-cat").val(str9)
+  $("input#greeting").val(str10)
+  $("input#username").val(str3)
+  $("input#they").val(str4)
+  $("input#them").val(str5)
+  $("input#their").val(str6)
+  $("input#connection").val(str11)
+  $("input#manage").val(str12)
+
   // Receive the form data:
   $("#form1").submit(function() {
     // Prevent the form data from being pushed to a server,
@@ -55,34 +87,24 @@ $(document).ready(function() {
     event.preventDefault()
 
     // Set variables to the form's inputs for readability:
-    const addressee = $("input#addressee").val()
-    const greeting = $("input#greeting").val()
-    const username = $("input#username").val()
-    const pronouns = $("input#pronouns").val()
+    str1 = $("input#addressee").val()
+    str2 = $("input#addressee-adj").val()
+    str3 = $("input#username").val()
+    str4 = $("input#they").val()
+    str5 = $("input#them").val()
+    str6 = $("input#their").val()
+    str7 = str6 + "self"
+    str9 = $("input#addressee-cat").val()
+    str10 = $("input#greeting").val()
+    str11 = $("input#connection").val()
+    str12 = $("input#manage").val()
     const connection = $("input#connection").val()
     const manage = $("input#manage").val()
-    alert(`Variables assigned`)
 
     // Pass form inputs (as variables) to a business-logic
     // function as parameters:
-    let anArray = ["Patrick", "he/they"]
-    anArray = results(addressee, greeting, username, pronouns, connection, manage)
-
-    // Apply a text string to every <span> class in the results
-    let str1 = "Count Rugen"
-    let str2 = "treacherous"
-    let str3 = "Inigo Montoya"
-    let str4 = "they"
-    let str5 = "them"
-    let str6 = "theirs"
-    let str7 = "theirself"
-    let str8 = "the art of ambidextrous swordplay"
-    let str9 = "monument to classist oppression"
-    let str10 = "hello"
-    let str11 = "you killed my father"
-    let str12 = "prepare to die"
-
-    //SPEECH = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
+    let anArray = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
+    anArray = results(anArray)
 
     $("span.username").text(anArray[0])
 
