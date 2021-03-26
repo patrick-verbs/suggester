@@ -1,7 +1,7 @@
 // BUSINESS LOGIC
-function results(inp1, inp2, inp3) {
+function results(inp1, inp2, inp3, inp4, inp5, inp6) {
   // STUFF
-  alert(`Function has received the inputs "${inp1}," "${inp2}," and "${inp3}"`)
+  alert(`Here's what to say to ${inp1}: "${inp2} My name is ${inp3} My pronouns are ${inp4}. ${inp5} ${inp6}"`)
 }
 
 // USER INTERFACE LOGIC
@@ -14,13 +14,16 @@ $(document).ready(function() {
     event.preventDefault()
 
     // Set variables to form inputs for readability:
-    const answer1 = $("input#quest1").val()
-    const answer2 = $("input#quest2").val()
-    const answer3 = $("input#quest3").val()
+    const addressee = $("input#addressee").val()
+    const greeting = $("input#greeting").val()
+    const codename = $("input#codename").val()
+    const pronouns = $("input#pronouns").val()
+    const connection = $("input#connection").val()
+    const manage = $("input#manage").val()
     alert(`Variables assigned`)
 
     // Pass form inputs (as variables) to a business-logic
     // function as parameters:
-    results(answer1, answer2, answer3)
+    results(addressee, greeting, codename, pronouns, connection, manage)
   })
 })
