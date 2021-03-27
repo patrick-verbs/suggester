@@ -1,6 +1,6 @@
 // BUSINESS LOGIC
 /////////////////
-function changeHeader() {
+function updateHeader() {
   let $focused = $(":focus").val()
   $("span#current-field").text($focused)
 }
@@ -22,26 +22,16 @@ function results(theArray) {
     alert(`Something went wrong passing user input data to the 'totalCount' variable.`
     + `\r\nIt currently has the value of "${totalCount}".`)
   } else {
-    alert(`So far, so good!`)
   }
 
   // Use branching to return at least 3 different results
   if (totalCount === 0) {
-    alert(`Result 1:`
-    + `\r\nTotalCount = ${totalCount}`
-    + `\r\nLanguage = Python`)
     theArray[7] = "Python"
   } else if (totalCount === 1) {
-    alert(`Result 2: totalCount = ${totalCount}`
-    + `\r\nLanguage = Ruby`)
     theArray[7] = "Ruby"
   } else if (totalCount === 2) {
-    alert(`Result 3: totalCount = ${totalCount}`
-    + `\r\nLanguage = JavaScript`)
     theArray[7] = "JavaScript"
   } else if (totalCount === 3) {
-    alert(`Result 4: totalCount = ${totalCount}`
-    + `\r\nLanguage = C#`)
     theArray[7] = "C#"
   } else {
     alert(`Branch logic exception.`
@@ -49,7 +39,6 @@ function results(theArray) {
     + `\r\nIt currently has a value of ${totalCount}.`)
   }
 
-  alert(`please do the thing...`)
   return theArray
 }
 
@@ -95,21 +84,30 @@ $(document).ready(function() {
     str4 = $("input#they").val()
     str5 = $("input#them").val()
     str6 = $("input#their").val()
-    str7 = str6 + "self"
+    str7 = str5 + "self"
+    // str8 to be determined by branching after passing these values to a function
     str9 = $("input#addressee-cat").val()
     str10 = $("input#greeting").val()
     str11 = $("input#connection").val()
     str12 = $("input#manage").val()
-    const connection = $("input#connection").val()
-    const manage = $("input#manage").val()
 
-    // Pass form inputs (as variables) to a business-logic
-    // function as parameters:
+    // Pass form inputs (as variables) to a business-logic function as parameters:
     let anArray = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
     anArray = results(anArray)
 
-    $("span.username").text(anArray[0])
+    // Insert function results into displayed survey results:
+    $("span.addressee").text(anArray[0])
+    $("span.addressee-adj").text(anArray[1])
+    $("span.username").text(anArray[2])
+    $("span.they").text(anArray[3])
+    $("span.them").text(anArray[4])
+    $("span.their").text(anArray[5])
+    $("span.themself").text(anArray[6])
     $("span.code-skill").text(anArray[7])
+    $("span.addressee-cat").text(anArray[8])
+    $("span.greeting").text(anArray[9])
+    $("span.connection").text(anArray[10])
+    $("span.manage").text(anArray[11])
 
     // Reveal the results and had the form
     $("section#survey-form").removeClass()

@@ -37,9 +37,9 @@ If you have a GitHub account, you can Clone or Fork this repository.
 - Form results (output) handling is incomplete
 - Poor edge-casing for user inputs
 - Ugly formatting
-- Probably uglier still on phones
-- Bootstrap sure makes for an expensive reset sheet...
-- I'm starting to think these ReadMe nav-links are hilariously unnecessary
+- Probably more ugly on phones
+- Bootstrap should _probably_ do more than serve as a really expensive reset sheet...
+- I'm starting to realize this ReadMe's nav-links are hilariously unhelpful
 - ...but they're staying
 
 # <a name="License"></a>License

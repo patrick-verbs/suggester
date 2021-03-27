@@ -19,43 +19,43 @@
       <form id="form1" name="formOne">
         <label for="addressee">Please identify the individual, group, or insitution you would like to arrange a meeting with in the future.</label>
         <br>
-        <input id="addressee" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="addressee" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="addressee-adj">In one word, please describe how you view this individual, group, or insitution's past accomplishments.</label>
         <br>
-        <input id="addressee-adj" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="addressee-adj" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="addressee-cat">In a short phrase, please describe or categorize this individual, group, or instituion, <em>without</em> any connection to yourself. For example, &ldquo;<strong>the brilliant physicist</strong>&rdquo; or &ldquo;<strong>a great speaker</strong>,&rdquo; but <em>not</em> &ldquo;<strong>my best friend</strong>.&rdquo;</label>
         <br>
-        <input id="addressee-cat" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="addressee-cat" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <!-- Future feature to qualify addressee as ally, bystander, or adversary -->
         <label for="greeting">Please enter a polite greeting.</label>
         <br>
-        <input id="greeting" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="greeting" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="username">Please provide your name or preferred code-name.</label>
         <br>
-        <input id="username" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="username" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="they">Please provide your preferred pronouns.</label>
         <br>
-        <input id="they" type="text" value="" onkeyup="changeHeader()" required>, <input id="them" type="text" value="" onkeyup="changeHeader()" required>, and <input id="their" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="they" type="text" value="" onkeyup="updateHeader()" required>, <input id="them" type="text" value="" onkeyup="updateHeader()" required>, and <input id="their" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="connection">Please specify a personal connection you have with your addressee.</label>
         <br>
-        <input id="connection" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="connection" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <label for="manage">Please manage your addressee's expectations for this engagement.</label>
         <br>
-        <input id="manage" type="text" value="" onkeyup="changeHeader()" required>
+        <input id="manage" type="text" value="" onkeyup="updateHeader()" required>
         <br>
         <br>
         <button type="submit">Show me!</button>
@@ -64,13 +64,13 @@
 
     <section id="survey-results" class="hide-me">
       <p>
-        One day, after many hours training <span class="theirself"></span> in <span class="code-skill"></span>, <span class="username"></span> will at last confront <span class="addressee-adj"> </span> <span class="addressee"></span>.
+        One day, after many hours training <span class="themself"></span> in <span class="code-skill"></span>, <span class="username"></span> will at last confront the <span class="addressee-adj"> </span> <span class="addressee"></span>.
       </p>
       <p>
-        And on this day, <span class="their"></span> opening words to this <span class="relation"></span> will be a <a href="https://tommccallum.com/2018/08/31/inigo-montoya-masterclass-on-introducing-yourself/">masterclass in self-introduction</a>&mdash;
+        And on this auspicious day, <span class="their"></span> opening words to this <em><span class="addressee-cat"></span></em> will be a veritable <a href="https://tommccallum.com/2018/08/31/inigo-montoya-masterclass-on-introducing-yourself/">masterclass in self-introduction</a>&mdash;
       </p>
       <p>
-        &ldquo;<span class="greeting"></span>,&rdquo; <span class="they"></span> will say. &ldquo;My name is <span class="username"></span>, and my most-preferred pronouns are <span class="they"></span>, <span class="them"></span>, and <span class="theirs"></span>. <span class="connection"></span>. <span class="expectations"></span>.&rdquo;
+        &ldquo;<span class="greeting"></span>,&rdquo; <span class="they"></span> will say! And then: &ldquo;My name is <span class="username"></span>, and my most-preferred pronouns are <span class="they"></span>, <span class="them"></span>, and <span class="their"></span>. <span class="connection"></span>. <span class="manage"></span>.&rdquo;
       </p>
     </section>
   </main>
