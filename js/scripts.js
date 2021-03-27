@@ -25,20 +25,26 @@ function results(theArray) {
   }
 
   // Use branching to return at least 3 different results
-  if (totalCount === 0) {
-    theArray[7] = "Python"
-  } else if (totalCount === 1) {
-    theArray[7] = "Ruby"
-  } else if (totalCount === 2) {
-    theArray[7] = "JavaScript"
-  } else if (totalCount === 3) {
-    theArray[7] = "C#"
-  } else {
-    alert(`Branch logic exception.`
-    + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
-    + `\r\nIt currently has a value of ${totalCount}.`)
+  switch (theArray[2]) {
+    case "Inigo Montoya":
+      theArray[7] === "the art of ambidextrous swordplay"
+      break
+    default:
+      if (totalCount === 0) {
+        theArray[7] = "Python"
+      } else if (totalCount === 1) {
+        theArray[7] = "Ruby"
+      } else if (totalCount === 2) {
+        theArray[7] = "JavaScript"
+      } else if (totalCount === 3) {
+        theArray[7] = "C#"
+      } else {
+        alert(`Branch logic exception.`
+        + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
+        + `\r\nIt currently has a value of ${totalCount}.`)
+      }
+      break
   }
-
   return theArray
 }
 
