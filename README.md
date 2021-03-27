@@ -1,5 +1,5 @@
 # <a name="Survey"></a>Survey: "Your Coding Destiny"
-#### Patrick Lee | _[See this survey on GitHub Pages](https://patrick-verbs.github.io/survey)_ (not yet live)
+#### Patrick Lee | _[See this survey on GitHub Pages](https://patrick-verbs.github.io/survey)_ _(...when it's live)_
 <details><summary><strong>Contents</strong></summary>
 <ul>
   <li><a href="#About">About</a></li>
@@ -30,14 +30,17 @@ If you have a GitHub account, you can Clone or Fork this repository.
 
 ## <a name="Technologies"></a>Technologies Used
 ###### _[Survey](https://github.com/patrick-verbs/survey) > [About](#About) > Technologies Used_
-- __HTML5__ | __JavaScript__ with __jQuery v. 3.6.0__ | __CSS__ with __[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)__
+- __HTML5__ | __JavaScript__ with __[jQuery v. 3.6.0](https://jquery.com/)__ | __CSS3__ with __[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)__
 
 ## <a name="Bugs"></a>Known Bugs
 ###### _[Survey](https://github.com/patrick-verbs/survey) > [About](#About) > Known Bugs_
 - Form results (output) handling is incomplete
 - Poor edge-casing for user inputs
 - Ugly formatting
-- Probably even uglier on phones
+- Probably uglier still on phones
+- Bootstrap sure makes for an expensive reset sheet...
+- I'm starting to think these ReadMe nav-links are hilariously unnecessary
+- ...but they're staying
 
 # <a name="License"></a>License
 ###### _[Survey](https://github.com/patrick-verbs/survey) > License_
