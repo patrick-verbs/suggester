@@ -51,31 +51,37 @@ function results(theArray) {
 // USER INTERFACE LOGIC
 ///////////////////////
 $(document).ready(function() {
-  // Define a text string for every <span> class in the results
-  let str1 = "Count Rugen"
-  let str2 = "treacherous"
-  let str3 = "Inigo Montoya"
-  let str4 = "they"
-  let str5 = "them"
-  let str6 = "their"
-  let str7 = "themself"
-  let str8 = "the art of ambidextrous swordplay"
-  let str9 = "monument to classist oppression"
-  let str10 = "hello"
-  let str11 = "you killed my father"
-  let str12 = "prepare to die"
+  // Build an array to hold each of the form's fields
+  // Provide a default text string for every <span> class in the results
+  let surveyArray = [
+    "Count Rugen",
+    "treacherous",
+    "monument to classist oppression",
+    "hello",
+    "Inigo Montoya",
+    "they",
+    "them",
+    "their",
+    "you killed my father",
+    "prepare to die",
+    "",
+    "",
+  ]
 
   // Set the default form values as an example for users:
-  $("input#addressee").val(str1)
-  $("input#addressee-adj").val(str2)
-  $("input#addressee-cat").val(str9)
-  $("input#greeting").val(str10)
-  $("input#username").val(str3)
-  $("input#they").val(str4)
-  $("input#them").val(str5)
-  $("input#their").val(str6)
-  $("input#connection").val(str11)
-  $("input#manage").val(str12)
+  for (i = 1; i <= 10; i++) {
+    $(".input" + i).val(surveyArray[i - 1])
+  }
+  // $("input#addressee").val(str1)
+  // $("input#addressee-adj").val(str2)
+  // $("input#addressee-cat").val(str9)
+  // $("input#greeting").val(str10)
+  // $("input#username").val(str3)
+  // $("input#they").val(str4)
+  // $("input#them").val(str5)
+  // $("input#their").val(str6)
+  // $("input#connection").val(str11)
+  // $("input#manage").val(str12)
 
   // Receive the form data:
   $("#form1").submit(function() {
@@ -84,36 +90,40 @@ $(document).ready(function() {
     event.preventDefault()
 
     // Set variables to the form's inputs for readability:
-    str1 = $("input#addressee").val()
-    str2 = $("input#addressee-adj").val()
-    str3 = $("input#username").val()
-    str4 = $("input#they").val()
-    str5 = $("input#them").val()
-    str6 = $("input#their").val()
-    str7 = str5 + "self"
-    // str8 to be determined by branching after passing these values to a function
-    str9 = $("input#addressee-cat").val()
-    str10 = $("input#greeting").val()
-    str11 = $("input#connection").val()
-    str12 = $("input#manage").val()
+    for (let i = 1; i <= 10; i++) {
+      surveyArray[i - 1] = $(".input" + i).val()
+    }
+    // str1 = $("input#addressee").val()
+    // str2 = $("input#addressee-adj").val()
+    // str3 = $("input#username").val()
+    // str4 = $("input#they").val()
+    // str5 = $("input#them").val()
+    // str6 = $("input#their").val()
+    // str7 = str5 + "self"
+    // // str8 to be determined by branching after passing these values to a function
+    // str9 = $("input#addressee-cat").val()
+    // str10 = $("input#greeting").val()
+    // str11 = $("input#connection").val()
+    // str12 = $("input#manage").val()
 
     // Pass form inputs (as variables) to a business-logic function as parameters:
-    let anArray = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
-    anArray = results(anArray)
+    // let anArray = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
+
+    surveyArray = results(surveyArray)
 
     // Insert function results into displayed survey results:
-    $("span.addressee").text(anArray[0])
-    $("span.addressee-adj").text(anArray[1])
-    $("span.username").text(anArray[2])
-    $("span.they").text(anArray[3])
-    $("span.them").text(anArray[4])
-    $("span.their").text(anArray[5])
-    $("span.themself").text(anArray[6])
-    $("span.code-skill").text(anArray[7])
-    $("span.addressee-cat").text(anArray[8])
-    $("span.greeting").text(anArray[9])
-    $("span.connection").text(anArray[10])
-    $("span.manage").text(anArray[11])
+    $("span.addressee").text(surveyArray[0])
+    $("span.addressee-adj").text(surveyArray[1])
+    $("span.username").text(surveyArray[2])
+    $("span.they").text(surveyArray[3])
+    $("span.them").text(surveyArray[4])
+    $("span.their").text(surveyArray[5])
+    $("span.themself").text(surveyArray[6])
+    $("span.code-skill").text(surveyArray[7])
+    $("span.addressee-cat").text(surveyArray[8])
+    $("span.greeting").text(surveyArray[9])
+    $("span.connection").text(surveyArray[10])
+    $("span.manage").text(surveyArray[11])
 
     // Reveal the results and had the form
     $("section#survey-form").removeClass()
