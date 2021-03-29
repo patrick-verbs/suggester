@@ -22,8 +22,9 @@ function results(theArray) {
   const totalCount = counts[0] + counts[1] + counts[2]
   // Catch errors in the above input handling and variable assignment:
   if ( totalCount < 0 || totalCount > counts.length || totalCount != parseInt(totalCount) ) {
-    alert(`Something went wrong passing user input data to the 'totalCount' variable.`
-    + `\r\nIt currently has the value of "${totalCount}".`)
+    console.log(`Something went wrong passing user input data to the 'totalCount' variable.`
+    + `\r\nIt currently has the value of "${totalCount}".`
+    + `\r\nThe value should be an interger between 0 and ${counts.length}.`)
   } else {
   }
 
