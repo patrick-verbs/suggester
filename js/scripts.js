@@ -1,13 +1,16 @@
 // BUSINESS LOGIC
 /////////////////
 function updateHeader() {
+  // Duplicate what the user is typing (into the focused field) on a stylized banner
   let $focused = $(":focus").val()
   $("span#current-field").text($focused)
 }
 
 function results(theArray) {
+  // Clear the banner that displays what the user was typing into the form
   $("span#current-field").text("")
-  // Extrapolate some data from inputs:
+
+  // Extrapolate some data from the inputs:
   // Group inputs into pairs, add their string-lengths together, and assign value "0" for evens and "1" for odds
   const count1 = (theArray[0].length + theArray[1].length) % 2// Always returns "0" or "1"
   const count2 = (theArray[2].length + theArray[3].length) % 2
@@ -39,12 +42,13 @@ function results(theArray) {
       } else if (totalCount === 3) {
         theArray[7] = "C#"
       } else {
-        alert(`Branch logic exception.`
+        console.log(`Branch logic exception.`
         + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
         + `\r\nIt currently has a value of ${totalCount}.`)
       }
       break
   }
+  // Return to sender!
   return theArray
 }
 
@@ -72,16 +76,6 @@ $(document).ready(function() {
   for (i = 1; i <= 10; i++) {
     $(".input" + i).val(surveyArray[i - 1])
   }
-  // $("input#addressee").val(str1)
-  // $("input#addressee-adj").val(str2)
-  // $("input#addressee-cat").val(str9)
-  // $("input#greeting").val(str10)
-  // $("input#username").val(str3)
-  // $("input#they").val(str4)
-  // $("input#them").val(str5)
-  // $("input#their").val(str6)
-  // $("input#connection").val(str11)
-  // $("input#manage").val(str12)
 
   // Receive the form data:
   $("#form1").submit(function() {
@@ -93,22 +87,8 @@ $(document).ready(function() {
     for (let i = 1; i <= 10; i++) {
       surveyArray[i - 1] = $(".input" + i).val()
     }
-    // str1 = $("input#addressee").val()
-    // str2 = $("input#addressee-adj").val()
-    // str3 = $("input#username").val()
-    // str4 = $("input#they").val()
-    // str5 = $("input#them").val()
-    // str6 = $("input#their").val()
-    // str7 = str5 + "self"
-    // // str8 to be determined by branching after passing these values to a function
-    // str9 = $("input#addressee-cat").val()
-    // str10 = $("input#greeting").val()
-    // str11 = $("input#connection").val()
-    // str12 = $("input#manage").val()
 
     // Pass form inputs (as variables) to a business-logic function as parameters:
-    // let anArray = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12]
-
     surveyArray = results(surveyArray)
 
     // Insert function results into displayed survey results:
