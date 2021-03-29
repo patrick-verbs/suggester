@@ -55,27 +55,16 @@ function results(theArray) {
 // USER INTERFACE LOGIC
 ///////////////////////
 $(document).ready(function() {
-  // Build an array to hold each of the form's fields
-  // Provide a default text string for every <span> class in the results
-  let surveyArray = [
-    "Count Rugen",
-    "treacherous",
-    "an air-sucking monument to classist oppression",
-    "hello",
-    "Inigo Montoya",
-    "they",
-    "them",
-    "their",
-    "you killed my father",
-    "prepare to die",
-    "",
-    "",
-  ]
-
-  // Set the default form values as an example for users:
-  for (i = 1; i <= 10; i++) {
-    $(".input" + i).val(surveyArray[i - 1])
-  }
+  // Build an array to hold the default values of each of the form's fields
+  let surveyInputs = []
+  $("#form1 input").each(function(i) {
+    // Later, see if this same loop can define objects --
+    // e.g., surveyArray = { this.id: $(this).val } where "this.id" names the properties
+    surveyInputs[i] = [this.id, $(this).val]
+  })
+  
+  // Set the default form values as an example for users
+  // ^ (DEPRECATED - see HTML input values) ^
 
   // Receive the form data:
   $("#form1").submit(function() {
@@ -84,15 +73,13 @@ $(document).ready(function() {
     event.preventDefault()
 
     // Set variables to the form's inputs for readability:
-    for (let i = 1; i <= 10; i++) {
-      surveyArray[i - 1] = $(".input" + i).val()
+    for (let i = 0; i < surveyInputs.length; i++) {
+      surveyInputs[i][1] = $(`input#${surveyInputs[i][0]}`).val()
     }
+    alert(surveyInputs[0])
 
     // Pass form inputs (as variables) to a business-logic function as parameters:
-    $("form#form1 input").each(function(i) {
-      $(this).val(this.className + ` (${i})`)
-    })
-    //surveyArray = results(surveyArray)
+    surveyInputs = results(surveyInputs)
 
     // Insert function results into displayed survey results:
     $("span.addressee").text(surveyArray[0])
