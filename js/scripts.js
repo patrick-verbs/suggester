@@ -18,11 +18,10 @@ function results(theArray) {
   // Tuck constants into an array for simplified error prevention and legible future scaling:
   const counts = [count1, count2, count3]
   // Tally the character-counts using the array to prevent unpredictable results:
-  // CHANGE THE BELOW TO A LOOP IF ENOUGH TIME LEFT, MORE ROBUST & LEGIBLE AT SCALE
   const totalCount = counts[0] + counts[1] + counts[2]
   // Catch errors in the above input handling and variable assignment:
-  if ( totalCount < 0 || totalCount > counts.length || totalCount != parseInt(totalCount) ) {
-    console.log(`Something went wrong passing user input data to the 'totalCount' variable.`
+  if ( totalCount < 0 || totalCount > counts.length || totalCount != parseInt(totalCount) || totalCount != ((totalCount + totalCount) / 2) ) {
+    alert(`Something went wrong passing user input data to the 'totalCount' variable.`
     + `\r\nIt currently has the value of "${totalCount}".`
     + `\r\nThe value should be an interger between 0 and ${counts.length}.`)
   } else {
