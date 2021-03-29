@@ -12,9 +12,9 @@ function results(theArray) {
 
   // Extrapolate some data from the inputs:
   // Group inputs into pairs, add their string-lengths together, and assign value "0" for evens and "1" for odds
-  const count1 = (theArray[0].length + theArray[1].length) % 2// Always returns "0" or "1"
-  const count2 = (theArray[2].length + theArray[3].length) % 2
-  const count3 = (theArray[4].length + theArray[5].length) % 2
+  const count1 = (theArray[0][1].length + theArray[1][1].length) % 2// Always returns "0" or "1"
+  const count2 = (theArray[2][1].length + theArray[3][1].length) % 2
+  const count3 = (theArray[4][1].length + theArray[5][1].length) % 2
   // Tuck constants into an array for simplified error prevention and legible future scaling:
   const counts = [count1, count2, count3]
   // Tally the character-counts using the array to prevent unpredictable results:
@@ -25,22 +25,22 @@ function results(theArray) {
     + `\r\nIt currently has the value of "${totalCount}".`
     + `\r\nThe value should be an interger between 0 and ${counts.length}.`)
   } else {
+    // Nothing; continue
   }
-
   // Use branching to return at least 3 different results
-  switch (theArray[2]) {
+  switch (theArray[4][1]) {
     case "Inigo Montoya":
-      theArray[7] === "the art of ambidextrous swordplay"
+      theArray.push( ["code-skill", "the art of ambidextrous swordplay"] )
       break
     default:
       if (totalCount === 0) {
-        theArray[7] = "Python"
+        theArray.push( ["code-skill", "Python"] )
       } else if (totalCount === 1) {
-        theArray[7] = "Ruby"
+        theArray.push( ["code-skill", "Ruby"] )
       } else if (totalCount === 2) {
-        theArray[7] = "JavaScript"
+        theArray.push( ["code-skill", "JavaScript"] )
       } else if (totalCount === 3) {
-        theArray[7] = "C#"
+        theArray.push( ["code-skill", "C Sharp"] )
       } else {
         console.log(`Branch logic exception.`
         + `\r\nThis branching uses the totalCount variable, which should have a value from 0 to ${counts.length}.`
@@ -48,6 +48,8 @@ function results(theArray) {
       }
       break
   }
+  // Add the additional "-self" pronoun
+  theArray.push( ["themself", `${theArray[6][1]}self`] )
   // Return to sender!
   return theArray
 }
@@ -76,29 +78,19 @@ $(document).ready(function() {
     for (let i = 0; i < surveyInputs.length; i++) {
       surveyInputs[i][1] = $(`input#${surveyInputs[i][0]}`).val()
     }
-    alert(surveyInputs[0])
 
     // Pass form inputs (as variables) to a business-logic function as parameters:
-    surveyInputs = results(surveyInputs)
+    const surveyOutputs = results(surveyInputs)
 
     // Insert function results into displayed survey results:
-    $("span.addressee").text(surveyArray[0])
-    $("span.addressee-adj").text(surveyArray[1])
-    $("span.username").text(surveyArray[2])
-    $("span.they").text(surveyArray[3])
-    $("span.them").text(surveyArray[4])
-    $("span.their").text(surveyArray[5])
-    $("span.themself").text(surveyArray[6])
-    $("span.code-skill").text(surveyArray[7])
-    $("span.addressee-cat").text(surveyArray[8])
-    $("span.greeting").text(surveyArray[9])
-    $("span.connection").text(surveyArray[10])
-    $("span.manage").text(surveyArray[11])
+    for (i = 0; i < surveyOutputs.length; i ++) {
+      $(`span.${surveyOutputs[i][0]}`).text(surveyOutputs[i][1])
+    }
 
     // Reveal the results and had the form
-    // $("section#survey-form").removeClass()
-    // $("section#survey-form").addClass("hide-me")
-    // $("section#survey-results").addClass("show-me")
-    // $("section#survey-results").addClass("hide-me")
+    $("section#survey-form").removeClass()
+    $("section#survey-form").addClass("hide-me")
+    $("section#survey-results").addClass("show-me")
+    $("section#survey-results").addClass("hide-me")
   })
 })
