@@ -21,7 +21,7 @@ function results(theArray) {
       case "manage":
         // ...ensure that string is capitalized, since it begins a sentence
         grammar = grammar.charAt(0).toUpperCase(0) + grammar.slice(1)
-        // Now update the value stored in the array to our new string
+        // Now update the value stored in the array to match our new string
         theArray[i][1] = grammar
         break
       default:
