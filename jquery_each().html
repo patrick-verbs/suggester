@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <!-- jQuery 3.6 via CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <title>Looping Nested Elements</title>
+</head>
+<body>
+
+  <!-- Just a form full of input-text fields for the example -->
+  <form id="test_form">
+
+    <input id="FirstName" value="First">
+    <br>
+    <input id="LastName" value="Last">
+    <br>
+    <input id="PronounThey" value="they">
+    <br>
+    <input id="PronounThem" value="them">
+    <br>
+    <input id="PronounTheir" value="their">
+    <br>
+    <input id="BirthYear" value="1987">
+    <br>
+    <input id="FavoriteColor" value="green">
+    <br>
+    <br>
+    <!-- Just a button to let jQuery know when to do the thing -->
+    <button type="submit">MAGIC</button>
+    <br>
+    <!-- Just a makeshift alernate button to demonstrate using design elements instead -->
+    <div style="width: 100px; height: 100px; background-color: #00880044; border: 2px solid #00ff0088">makeshift button!</div>
+    
+  </form>
+  <!-- Here's the actual point of this file -->
+  <script>
+  $(document).ready(function() {
+    // This is literally just for using the <div> (any <div> on the page, actually)
+    // into a makeshift button.
+    $("div").click(function () {
+      let someArray = [""]
+      alertString = ""
+      // 1. "form#test_form input" targets the elements you want .each() to run through
+      //    EVERY instance of! To only get <input> elements from within a parent element,
+      //    target <input> as you would in CSS -- ONLY those <input>s (inside "form#test_form")
+      //    will be inspected by .each()!
+      // 2. .each(function() ) { DO STUFF HERE, like $(this).val(whatever blah blah) }
+      //    ^ that is REQUIRED syntax. Don't forget (function())!!!
+      // 3. function(i) instead of the above gets you an index value (from 0, of course)
+      //    for whichever "each" you're currently on!!! That's where the magic's at!
+      $("form#test_form input").each(function(i) {
+        alert(`Lots of these...\r\n` + i + " - " + this.id + " - " + $(this).val())
+        someArray[i] = [i, this.id, $(this).val()]
+        // Should return e.g. someArray[1] = [1, "LastName", "Turner"]
+        // 1. $(this) is how you get the current <input> the loop is on
+        // 2. this.className or this.id etc. gets you that magic!
+        $(this).val(this.id + ` (${i})`)
+        // 3. The best use-case is probably pairing a class or ID with its current value!!!
+        //    This gives you a key-value pair in an array!!!
+        //    Nest array below to demonstrate:
+      })
+      for (i = 0; i < someArray.length; i++) {
+        alertString = alertString + someArray[i][0] + `) ${someArray[i][1]}: ${someArray[i][2]}\r\n`
+        // ^ yes, I'm aware I mixed string syntaxes (" " + " " vs. `stuff ${x} stuff`)
+        // This is just for clarity and to jog my memory if need be
+      }
+      alert(alertString)
+    })
+
+  })
+  </script>
+</body>
+</head>
+</html>

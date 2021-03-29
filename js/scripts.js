@@ -60,7 +60,7 @@ $(document).ready(function() {
   let surveyArray = [
     "Count Rugen",
     "treacherous",
-    "monument to classist oppression",
+    "an air-sucking monument to classist oppression",
     "hello",
     "Inigo Montoya",
     "they",
@@ -89,7 +89,10 @@ $(document).ready(function() {
     }
 
     // Pass form inputs (as variables) to a business-logic function as parameters:
-    surveyArray = results(surveyArray)
+    $("form#form1 input").each(function(i) {
+      $(this).val(this.className + ` (${i})`)
+    })
+    //surveyArray = results(surveyArray)
 
     // Insert function results into displayed survey results:
     $("span.addressee").text(surveyArray[0])
@@ -106,9 +109,9 @@ $(document).ready(function() {
     $("span.manage").text(surveyArray[11])
 
     // Reveal the results and had the form
-    $("section#survey-form").removeClass()
-    $("section#survey-form").addClass("hide-me")
-    $("section#survey-results").addClass("show-me")
-    $("section#survey-results").addClass("hide-me")
+    // $("section#survey-form").removeClass()
+    // $("section#survey-form").addClass("hide-me")
+    // $("section#survey-results").addClass("show-me")
+    // $("section#survey-results").addClass("hide-me")
   })
 })
