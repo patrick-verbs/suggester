@@ -10,6 +10,21 @@ function results(theArray) {
   // Clear the banner that displays what the user was typing into the form
   $("span#current-field").text("")
 
+  // Capitalize elements that need it:
+  for (i = 0; i < theArray.length; i++) {
+    let grammar = theArray[i][1]
+    switch (theArray[i][0]) {
+      case "greeting":
+      case "connection":
+      case "manage":
+        grammar = grammar.charAt(0).toUpperCase(0) + grammar.slice(1)
+        theArray[i][1] = grammar
+        break
+      default:
+        break
+    }
+  }
+
   // Extrapolate some data from the inputs:
   // Group inputs into pairs, add their string-lengths together, and assign value "0" for evens and "1" for odds
   const count1 = (theArray[0][1].length + theArray[1][1].length) % 2// Always returns "0" or "1"
@@ -79,7 +94,7 @@ $(document).ready(function() {
       surveyInputs[i][1] = $(`input#${surveyInputs[i][0]}`).val()
     }
 
-    // Pass form inputs (as variables) to a business-logic function as parameters:
+    // Pass form inputs (as an array) to a business-logic function:
     const surveyOutputs = results(surveyInputs)
 
     // Insert function results into displayed survey results:
