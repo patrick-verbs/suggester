@@ -12,12 +12,16 @@ function results(theArray) {
 
   // Capitalize elements that need it:
   for (i = 0; i < theArray.length; i++) {
+    // Store the current string value that the user input...
     let grammar = theArray[i][1]
     switch (theArray[i][0]) {
+      // ...and in each of these cases...
       case "greeting":
       case "connection":
       case "manage":
+        // ...ensure that string is capitalized, since it begins a sentence
         grammar = grammar.charAt(0).toUpperCase(0) + grammar.slice(1)
+        // Now update the value stored in the array to our new string
         theArray[i][1] = grammar
         break
       default:
@@ -26,7 +30,8 @@ function results(theArray) {
   }
 
   // Extrapolate some data from the inputs:
-  // Group inputs into pairs, add their string-lengths together, and assign value "0" for evens and "1" for odds
+  // Group some inputs into pairs, add their string-lengths together,
+  // and assign value "0" for evens and "1" for odds
   const count1 = (theArray[0][1].length + theArray[1][1].length) % 2// Always returns "0" or "1"
   const count2 = (theArray[2][1].length + theArray[3][1].length) % 2
   const count3 = (theArray[4][1].length + theArray[5][1].length) % 2
@@ -36,7 +41,7 @@ function results(theArray) {
   const totalCount = counts[0] + counts[1] + counts[2]
   // Catch errors in the above input handling and variable assignment:
   if ( totalCount < 0 || totalCount > counts.length || totalCount != parseInt(totalCount) || totalCount != ((totalCount + totalCount) / 2) ) {
-    alert(`Something went wrong passing user input data to the 'totalCount' variable.`
+    console.log(`Something went wrong passing user input data to the 'totalCount' variable.`
     + `\r\nIt currently has the value of "${totalCount}".`
     + `\r\nThe value should be an interger between 0 and ${counts.length}.`)
   } else {
@@ -45,10 +50,13 @@ function results(theArray) {
   // Use branching to return at least 3 different results
   switch (theArray[4][1]) {
     case "Inigo Montoya":
+      // "code-skill" is a class name for one of our <span> outputs
       theArray.push( ["code-skill", "the art of ambidextrous swordplay"] )
+      // ("Inigo Montoya" is a special case)
       break
     default:
       if (totalCount === 0) {
+        // Any other name gets a programming language for this result:
         theArray.push( ["code-skill", "Python"] )
       } else if (totalCount === 1) {
         theArray.push( ["code-skill", "Ruby"] )
@@ -65,6 +73,7 @@ function results(theArray) {
   }
   // Add the additional "-self" pronoun
   theArray.push( ["themself", `${theArray[6][1]}self`] )
+  // Like "code-skill", "themself" is also a class name for a <span> output
   // Return to sender!
   return theArray
 }
@@ -72,16 +81,19 @@ function results(theArray) {
 // USER INTERFACE LOGIC
 ///////////////////////
 $(document).ready(function() {
-  // Build an array to hold the default values of each of the form's fields
+  // Initialize an array to hold form's input-field values:
   let surveyInputs = []
+
+  // Loop through every <input> and add both its ID and VALUE to the above array
+  // (as a nested array: surveyInputs[ [id1, value1], [id2, value2], etc.] )
   $("#form1 input").each(function(i) {
-    // Later, see if this same loop can define objects --
+    // For later: See if this same loop can define objects --
     // e.g., surveyArray = { this.id: $(this).val } where "this.id" names the properties
     surveyInputs[i] = [this.id, $(this).val]
   })
   
   // Set the default form values as an example for users
-  // ^ (DEPRECATED - see HTML input values) ^
+  // ^ (REMOVED - see HTML input values for these defaults)
 
   // Receive the form data:
   $("#form1").submit(function() {
@@ -89,9 +101,13 @@ $(document).ready(function() {
     // since all data is being handled here in JS/CSS/HTML:
     event.preventDefault()
 
-    // Set variables to the form's inputs for readability:
+    // For each [id, value] element in the array surveyInputs...
     for (let i = 0; i < surveyInputs.length; i++) {
+      // ...set its [value] sub-element to the current <input> field's value
       surveyInputs[i][1] = $(`input#${surveyInputs[i][0]}`).val()
+      //                                    ^ This id ^ was stored earlier:
+      //                                                  v  v
+      //                             surveyInputs[i] = [this.id, $(this).val]
     }
 
     // Pass form inputs (as an array) to a business-logic function:
@@ -99,10 +115,12 @@ $(document).ready(function() {
 
     // Insert function results into displayed survey results:
     for (i = 0; i < surveyOutputs.length; i ++) {
+      // The output <span> classes match the <input> IDs, so we find our outputs
+      // with the same string v  v and add its paired value  v  into that <span>
       $(`span.${surveyOutputs[i][0]}`).text(surveyOutputs[i][1])
     }
 
-    // Reveal the results and had the form
+    // Reveal the results and hide the survey form
     $("section#survey-form").removeClass()
     $("section#survey-form").addClass("hide-me")
     $("section#survey-results").addClass("show-me")
