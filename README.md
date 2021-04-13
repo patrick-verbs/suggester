@@ -34,15 +34,7 @@ If you have a GitHub account, you can Clone or Fork this repository.
 
 ## <a name="Bugs"></a>Known Bugs
 ###### _[Survey](https://github.com/patrick-verbs/survey) > [About](#About) > Known Bugs_
-- ~~Form results (output) handling is incomplete~~ Fixed
-- Poor edge-casing for user inputs
-  - Remove closing punctuation
-  - Capitalize at beginning of sentences (CSS or JS?)
-- Ugly formatting
-- Probably even more ugly on phones
-- Bootstrap should _probably_ do more than serve as a really expensive reset sheet...
-- I'm realizing this ReadMe's nav links are hilariously unhelpful
-- ...buuut they're staying
+- No handling for user-inputted punctuation
 
 # <a name="License"></a>License
 ###### _[Survey](https://github.com/patrick-verbs/survey) > License_
